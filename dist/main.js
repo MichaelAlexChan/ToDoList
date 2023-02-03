@@ -1,1 +1,0 @@
-(()=>{const e=document.getElementById("container"),t=document.createElement("h1");t.textContent="Hello",e.appendChild(t),document.appendChild(e)})();
