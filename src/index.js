@@ -14,6 +14,7 @@ const pageDisplay = document.getElementById('container');
 const displayLists = () => {
   listObject.list.forEach((element) => {
     const toDoDiv = document.createElement('div');
+    toDoDiv.classList.add('listObject');
 
     const name = document.createElement('h3');
     name.innerText = element.title;
