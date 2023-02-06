@@ -1,4 +1,4 @@
-export default function toDoList() {
+export default function toDoList(title) {
   const list = [];
 
   function addToDo(toDoObject) {
@@ -14,6 +14,7 @@ export default function toDoList() {
     list.splice(toDoObject.index, 1, toDoObject);
   }
   return {
+    title,
     list,
     addToDo,
     deleteToDo,

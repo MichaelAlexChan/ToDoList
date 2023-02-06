@@ -1,4 +1,4 @@
-export default function ListStorage() {
+export default function Project() {
   const listStorage = [];
 
   function addList(list) {
@@ -11,6 +11,7 @@ export default function ListStorage() {
   }
 
   return {
+    listStorage,
     addList,
     deleteList,
   };
