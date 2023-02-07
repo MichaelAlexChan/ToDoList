@@ -17,6 +17,12 @@ body {
   flex-direction: column;
 }
 
+.project {
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .listObject {
   border: 2px solid black;
   display: flex;

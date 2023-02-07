@@ -1,6 +1,8 @@
 export default function displayToDoList(listObject) {
-  console.log('hii');
   const pageDisplay = document.getElementById('container');
+  while (pageDisplay.firstChild) {
+    pageDisplay.removeChild(pageDisplay.firstChild);
+  }
   listObject.list.forEach((element) => {
     const toDoDiv = document.createElement('div');
     toDoDiv.classList.add('listObject');

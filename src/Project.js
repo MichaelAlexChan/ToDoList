@@ -1,17 +1,17 @@
-export default function Project() {
-  const listStorage = [];
+export default function Projects() {
+  const projectStorage = [];
 
   function addList(list) {
-    listStorage.push(list);
-    list.index = listStorage.length - 1;
+    projectStorage.push(list);
+    list.index = projectStorage.length - 1;
   }
 
   function deleteList(list) {
-    listStorage.splice(list.index, 1);
+    projectStorage.splice(list.index, 1);
   }
 
   return {
-    listStorage,
+    projectStorage,
     addList,
     deleteList,
   };
