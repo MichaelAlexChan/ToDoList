@@ -23,6 +23,14 @@ body {
   justify-content: space-evenly;
 }
 
+.headingDiv {
+  display: flex;
+}
+
+#headingText {
+  align-self: center;
+}
+
 .listObject {
   border: 2px solid black;
   display: flex;

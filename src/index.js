@@ -21,8 +21,14 @@ const container = document.getElementById('container');
 
 container.addEventListener('click', (event) => {
   if (event.target.tagName === 'BUTTON') {
-    console.log(projects.projectStorage);
-    console.log(listObject.index);
-    displayToDoList(projects.projectStorage[listObject.index]);
+    const btn = event.target.id;
+    if (btn === 'expand') {
+      console.log(projects.projectStorage);
+      console.log(listObject.index);
+      displayToDoList(projects.projectStorage[listObject.index]);
+    }
+    if (btn === 'backBtn') {
+      displayProjects(projects);
+    }
   }
 });
