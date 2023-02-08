@@ -6,7 +6,7 @@ export default function displayToDoList(listObject) {
 
   // Create the subheading and back button for the project
   const headingDiv = document.createElement('div');
-  headingDiv.classList.add('headingDiv');
+  headingDiv.classList.add('toDoHead');
 
   const headingBackBtn = document.createElement('button');
   headingBackBtn.innerText = 'back to Projects';
@@ -17,8 +17,10 @@ export default function displayToDoList(listObject) {
   headingText.innerText = `Project: ${listObject.title}`;
   headingText.setAttribute('id', 'headingText');
   headingDiv.appendChild(headingText);
-
   pageDisplay.appendChild(headingDiv);
+
+  const labelDiv = document.createElement('div');
+  labelDiv.classList.add('labelDiv');
 
   listObject.list.forEach((element) => {
     const toDoDiv = document.createElement('div');
@@ -43,6 +45,16 @@ export default function displayToDoList(listObject) {
     const notes = document.createElement('p');
     notes.innerText = element.dueDate;
     toDoDiv.appendChild(notes);
+
+    const editBtn = document.createElement('button');
+    editBtn.setAttribute('id', 'editBtn');
+    editBtn.innerText = 'Edit';
+    toDoDiv.appendChild(editBtn);
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.innerText = 'Delete';
+    deleteBtn.setAttribute('id', 'deleteToDoBtn');
+    toDoDiv.appendChild(deleteBtn);
 
     pageDisplay.appendChild(toDoDiv);
   });

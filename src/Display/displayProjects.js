@@ -3,9 +3,18 @@ export default function displayProjects(projects) {
   while (pageDisplay.firstChild) {
     pageDisplay.removeChild(pageDisplay.firstChild);
   }
+
+  const headingDiv = document.createElement('div');
+  headingDiv.classList.add('projectHead');
+  const headingText = document.createElement('h2');
+  headingText.innerText = 'Project List';
+  headingDiv.appendChild(headingText);
+  pageDisplay.appendChild(headingDiv);
+
   projects.projectStorage.forEach((element) => {
     const projectDisplay = document.createElement('div');
     projectDisplay.classList.add('project');
+    projectDisplay.setAttribute('data-title', element.title);
 
     const name = document.createElement('h3');
     name.innerText = element.title;
@@ -17,7 +26,7 @@ export default function displayProjects(projects) {
     projectDisplay.appendChild(expand);
 
     const deleteProject = document.createElement('button');
-    deleteProject.setAttribute('id', 'delete');
+    deleteProject.setAttribute('id', 'deleteProjectBtn');
     deleteProject.innerText = 'Delete Project';
     projectDisplay.appendChild(deleteProject);
 

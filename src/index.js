@@ -22,13 +22,21 @@ const container = document.getElementById('container');
 container.addEventListener('click', (event) => {
   if (event.target.tagName === 'BUTTON') {
     const btn = event.target.id;
+    const dataTitle = event.target.parentNode.getAttribute('data-title');
+    console.log(dataTitle);
     if (btn === 'expand') {
-      console.log(projects.projectStorage);
-      console.log(listObject.index);
       displayToDoList(projects.projectStorage[listObject.index]);
-    }
-    if (btn === 'backBtn') {
+    } else if (btn === 'backBtn') {
       displayProjects(projects);
+    } else if (btn === 'editBtn') {
+
+    } else if (btn === 'deleteToDoBtn') {
+
+    } else if (btn === 'deleteProjectBtn') {
+      if (window.confirm('Do you real want to delete this project?')) {
+        projects.deleteList(dataTitle);
+        displayProjects(projects);
+      }
     }
   }
 });

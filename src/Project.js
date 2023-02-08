@@ -6,8 +6,9 @@ export default function Projects() {
     list.index = projectStorage.length - 1;
   }
 
-  function deleteList(list) {
-    projectStorage.splice(list.index, 1);
+  function deleteList(listtitle) {
+    const index = projectStorage.findIndex((element) => element.title === listtitle);
+    projectStorage.splice(index, 1);
   }
 
   return {
