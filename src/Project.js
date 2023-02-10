@@ -1,19 +1,22 @@
 export default function Projects() {
   const projectStorage = [];
 
-  function addList(list) {
-    projectStorage.push(list);
-    list.index = projectStorage.length - 1;
+  function getListIndex(listTitle) {
+    return projectStorage.findIndex((element) => element.title === listTitle);
   }
 
-  function deleteList(listtitle) {
-    const index = projectStorage.findIndex((element) => element.title === listtitle);
-    projectStorage.splice(index, 1);
+  function addList(list) {
+    projectStorage.push(list);
+  }
+
+  function deleteList(listTitle) {
+    projectStorage.splice(getListIndex(listTitle), 1);
   }
 
   return {
     projectStorage,
     addList,
     deleteList,
+    getListIndex,
   };
 }
