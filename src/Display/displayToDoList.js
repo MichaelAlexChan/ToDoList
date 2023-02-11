@@ -1,5 +1,6 @@
 export default function displayToDoList(listObject) {
   const pageDisplay = document.getElementById('container');
+  pageDisplay.setAttribute('data-list', listObject.title);
   while (pageDisplay.firstChild) {
     pageDisplay.removeChild(pageDisplay.firstChild);
   }
@@ -24,7 +25,7 @@ export default function displayToDoList(listObject) {
   listObject.list.forEach((element) => {
     const toDoDiv = document.createElement('div');
     toDoDiv.classList.add('listObject');
-    toDoDiv.setAttribute('id', 'data-todo');
+    toDoDiv.setAttribute('data-todo', element.title);
 
     const name = document.createElement('h3');
     name.innerText = `To-Do: ${element.title}`;

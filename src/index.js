@@ -13,7 +13,6 @@ listObject.addToDo(object1);
 listObject.addToDo(object2);
 const projects = Project();
 projects.addList(listObject);
-console.log(projects);
 
 displayProjects(projects);
 
@@ -24,34 +23,40 @@ container.addEventListener('click', (event) => {
   if (!event.target.tagName === 'BUTTON') return;
 
   // Get the id, data attribute, and index of the project in the array
-  const btn = event.target.id;
-  const btnParent = event.target.parentNode;
-  const dataTitle = btnParent.getAttribute('data-title');
-  console.log(btnParent.className);
-  if (btnParent.className === 'project') {
+  const btn = event.target;
+  if (btn.parentNode.className === 'project') {
     // The project doesn't exist in our list
+    const dataTitle = btn.parentNode.getAttribute('data-title');
     if (projects.getListIndex(dataTitle) === -1) return;
 
-    if (btn === 'expand') {
+    if (btn.id === 'expand') {
       displayToDoList(projects.projectStorage[projects.getListIndex(dataTitle)]);
-    } else if (btn === 'deleteProjectBtn') {
+    } else if (btn.id === 'deleteProjectBtn') {
       if (window.confirm('Do you real want to delete this project?')) {
         projects.deleteList(dataTitle);
         displayProjects(projects);
       }
     }
   } else {
-    if (btn === 'backBtn') {
-      console.log(projects);
+    if (btn.id === 'backBtn') {
       displayProjects(projects);
     } else if (btn === 'editBtn') {
 
-    } else if (btn === 'deleteToDoBtn') {
+    } else if (btn.id === 'deleteToDoBtn') {
       if (window.confirm('Do you real want to delete this To-Do?')) {
-        console.log(projects.projectStorage[projects.getListIndex(dataTitle)]);
-        projects.projectStorage[projects.getListIndex(dataTitle)].deleteToDo(dataTitle);
-        displayToDoList(projects.projectStorage[projects.getListIndex(dataTitle)]);
+        const title = btn.parentNode.getAttribute('data-todo');
+        console.log(title);
+        console.log(container.getAttribute('data-list'));
+        const currentListTitle = container.getAttribute('data-list');
+        const currentList = projects.projectStorage[projects.getListIndex(currentListTitle)];
+        console.log(currentList);
+        currentList.deleteToDo(title);
+        displayToDoList(projects.projectStorage[projects.getListIndex(currentListTitle)]);
       }
     }
   }
 });
+
+function handleEdit() {
+
+}

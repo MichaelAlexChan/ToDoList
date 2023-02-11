@@ -1,5 +1,6 @@
 export default function displayProjects(projects) {
   const pageDisplay = document.getElementById('container');
+  pageDisplay.removeAttribute('data-list');
   while (pageDisplay.firstChild) {
     pageDisplay.removeChild(pageDisplay.firstChild);
   }
