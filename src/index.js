@@ -1,4 +1,4 @@
-/* eslint-disable no-lonely-if */
+1/* eslint-disable no-lonely-if */
 import toDo from './ToDoObject';
 import toDoList from './ToDoList';
 import Project from './Project';
