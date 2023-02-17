@@ -5,9 +5,9 @@ import Project from './Project';
 import './style.css';
 import displayToDoList from './Display/displayToDoList';
 import displayProjects from './Display/displayProjects';
-import displayModal from './Display/displayModal';
+import { displayModal, fillModal } from './Display/displayModal';
 
-const object1 = toDo('wash dishes', 'wash the darn dishes', 'today', 'high', 'you can use the dishwasher');
+const object1 = toDo('wash dishes', 'wash the darn dishes', '2023-02-16', 'high', 'you can use the dishwasher');
 const object2 = toDo('eat protein', 'gotta get 100g of protein', 'today', 'high', 'protein from foods preferred');
 const listObject = toDoList('mylist');
 listObject.addToDo(object1);
@@ -42,7 +42,8 @@ container.addEventListener('click', (event) => {
     if (btn.id === 'backBtn') {
       displayProjects(projects);
     } else if (btn.id === 'editBtn') {
-      displayModal(object1);
+      displayModal();
+      fillModal(object1);
     } else if (btn.id === 'deleteToDoBtn') {
       if (window.confirm('Do you real want to delete this To-Do?')) {
         const title = btn.parentNode.getAttribute('data-todo');
@@ -52,7 +53,7 @@ container.addEventListener('click', (event) => {
         displayToDoList(projects.projectStorage[projects.getListIndex(currentListTitle)]);
       }
     } else if (btn.id === 'submitBtn') {
-      handleSubmit();
+
     }
   }
 });

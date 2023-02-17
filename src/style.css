@@ -64,10 +64,15 @@ body {
 
 .modal {
   position: absolute;
+  width: 40vw;
   background-color: white;
   top: 20%;
   border: 1px solid #ddd;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
 }
 
 .overlay {
@@ -85,6 +90,13 @@ body {
 
 .modalHead {
   display: flex;
+  width: 90%;
   justify-content: space-between;
+  align-items: center;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
