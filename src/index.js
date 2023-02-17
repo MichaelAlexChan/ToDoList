@@ -1,10 +1,11 @@
-1/* eslint-disable no-lonely-if */
+/* eslint-disable no-lonely-if */
 import toDo from './ToDoObject';
 import toDoList from './ToDoList';
 import Project from './Project';
 import './style.css';
 import displayToDoList from './Display/displayToDoList';
 import displayProjects from './Display/displayProjects';
+import displayModal from './Display/displayModal';
 
 const object1 = toDo('wash dishes', 'wash the darn dishes', 'today', 'high', 'you can use the dishwasher');
 const object2 = toDo('eat protein', 'gotta get 100g of protein', 'today', 'high', 'protein from foods preferred');
@@ -40,23 +41,18 @@ container.addEventListener('click', (event) => {
   } else {
     if (btn.id === 'backBtn') {
       displayProjects(projects);
-    } else if (btn === 'editBtn') {
-
+    } else if (btn.id === 'editBtn') {
+      displayModal(object1);
     } else if (btn.id === 'deleteToDoBtn') {
       if (window.confirm('Do you real want to delete this To-Do?')) {
         const title = btn.parentNode.getAttribute('data-todo');
-        console.log(title);
-        console.log(container.getAttribute('data-list'));
         const currentListTitle = container.getAttribute('data-list');
         const currentList = projects.projectStorage[projects.getListIndex(currentListTitle)];
-        console.log(currentList);
         currentList.deleteToDo(title);
         displayToDoList(projects.projectStorage[projects.getListIndex(currentListTitle)]);
       }
+    } else if (btn.id === 'submitBtn') {
+      handleSubmit();
     }
   }
 });
-
-function handleEdit() {
-
-}
