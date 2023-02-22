@@ -6,7 +6,7 @@ import './style.css';
 import displayToDoList from './Display/displayToDoList';
 import displayProjects from './Display/displayProjects';
 import {
-  displayToDoModal, displayProjectModal, fillModal, getToDoEntries, closeModal,
+  displayToDoModal, displayProjectModal, fillModal, getEntries, closeModal,
 } from './Display/displayModal';
 
 const object1 = toDo(['wash dishes', 'wash the darn dishes', '2023-02-16', 'high', 'you can use the dishwasher']);
@@ -27,13 +27,16 @@ document.body.addEventListener('click', (event) => {
 
   // Get the id, data attribute, and index of the project in the array
   const btn = event.target;
-  console.log(btn.id);
-  console.log(btn.parentNode.className);
   if (btn.id === 'newProjectBtn') {
-    console.log('its working');
     displayProjectModal();
-  }
-  if (btn.parentNode.className === 'project') {
+  } else if (btn.id === 'newToDoBtn') {
+    displayToDoModal();
+  } else if (btn.id === 'submitProjectBtn') {
+    const entries = getEntries();
+    projects.addList(toDoList(entries[0]));
+    closeModal();
+    displayProjects(projects);
+  } else if (btn.parentNode.className === 'project') {
     // The project doesn't exist in our list
     const dataTitle = btn.parentNode.getAttribute('data-title');
     if (projects.getListIndex(dataTitle) === -1) return;
@@ -53,7 +56,7 @@ document.body.addEventListener('click', (event) => {
       displayToDoModal();
       fillModal(object1);
     } else if (btn.id === 'submitToDoBtn') {
-      const edit = toDo(getToDoEntries());
+      const edit = toDo(getEntries());
       console.log(edit);
       listObject.editToDo(edit);
       closeModal();

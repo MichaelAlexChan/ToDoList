@@ -80,7 +80,7 @@ function displayProjectModal() {
 
   const submitBtn = document.createElement('button');
   submitBtn.innerText = 'Submit';
-  submitBtn.setAttribute('id', 'submitToDoBtn');
+  submitBtn.setAttribute('id', 'submitProjectBtn');
 
   modal.appendChild(headerDiv);
   modal.appendChild(bodyDiv);
@@ -117,7 +117,7 @@ function closeModal() {
 }
 
 // Returns the entries in the input boxes
-function getToDoEntries() {
+function getEntries() {
   const properties = [];
   const inputs = modal.getElementsByTagName('input');
   for (let i = 0; i < inputs.length; i += 1) {
@@ -146,5 +146,5 @@ function createLabelAndInput(inputLabel, inputId) {
   return [label, input];
 }
 export {
-  displayToDoModal, displayProjectModal, fillModal, getToDoEntries, closeModal,
+  displayToDoModal, displayProjectModal, fillModal, getEntries, closeModal,
 };
