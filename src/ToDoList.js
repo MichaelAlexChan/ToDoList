@@ -15,7 +15,9 @@ export default function toDoList(title) {
   }
 
   function editToDo(toDoObject) {
-    list.splice(toDoObject.index, 1, toDoObject);
+    if (list.splice(toDoObject.index, 1, toDoObject)) {
+      console.log('true');
+    }
   }
 
   return {

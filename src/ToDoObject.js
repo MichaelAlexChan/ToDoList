@@ -1,4 +1,4 @@
-export default function toDo(title, description, dueDate, priority, notes) {
+export default function toDo([title, description, dueDate, priority, notes]) {
   return {
     title,
     description,
