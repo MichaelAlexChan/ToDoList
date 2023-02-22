@@ -5,6 +5,10 @@ export default function displayProjects(projects) {
     pageDisplay.removeChild(pageDisplay.firstChild);
   }
 
+  const containerControl = document.getElementsByClassName('containerBtn');
+  containerControl[0].setAttribute('id', 'newProjectBtn');
+  containerControl[0].innerText = 'New Project';
+
   const headingDiv = document.createElement('div');
   headingDiv.classList.add('projectHead');
   const headingText = document.createElement('h2');
