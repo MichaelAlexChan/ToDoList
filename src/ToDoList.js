@@ -5,6 +5,10 @@ export default function toDoList(title) {
     return list.findIndex((element) => element.title === toDoTitle);
   }
 
+  function getToDo(toDoTitle) {
+    return list[getToDoIndex(toDoTitle)];
+  }
+
   function addToDo(toDoObject) {
     list.push(toDoObject);
     toDoObject.index = list.length - 1;
@@ -26,5 +30,7 @@ export default function toDoList(title) {
     addToDo,
     deleteToDo,
     editToDo,
+    getToDoIndex,
+    getToDo,
   };
 }

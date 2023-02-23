@@ -1,16 +1,23 @@
 /* eslint-disable no-use-before-define */
 const modal = document.createElement('section');
 modal.classList.add('modal', 'hidden');
+modal.setAttribute('id', 'modal');
 const overlay = document.createElement('div');
 overlay.classList.add('overlay', 'hidden');
 
 // Display an empty to-do modal with inputs and labels - allows for submission and close
-function displayToDoModal() {
+function displayToDoModal(type) {
   const headerDiv = document.createElement('div');
   headerDiv.classList.add('modalHead');
 
   const header = document.createElement('h2');
-  header.innerText = 'Edit To-Do';
+  if (type === 'edit') {
+    header.innerText = 'Edit To-Do';
+    modal.setAttribute('data-Modal', 'editModal');
+  } else {
+    header.innerText = 'New To-Do';
+    modal.setAttribute('data-Modal', 'newModal');
+  }
   const closeBtn = document.createElement('button');
   closeBtn.innerHTML = 'X';
   closeBtn.setAttribute('id', 'closeModal');
@@ -70,9 +77,6 @@ function displayProjectModal() {
 
   const bodyDiv = document.createElement('div');
   bodyDiv.classList.add('modalBody');
-  const bodyContent = document.createElement('p');
-  bodyContent.innerText = 'This is a test';
-  bodyDiv.appendChild(bodyContent);
 
   const [titleLabel, titleInput] = createLabelAndInput('Title', 'title');
   bodyDiv.appendChild(titleLabel);
